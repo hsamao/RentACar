@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<center><h1>Main Page</h1></center>
+<h1>Main Page</h1>
 
 </body>
 </html>
