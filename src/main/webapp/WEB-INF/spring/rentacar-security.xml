@@ -10,7 +10,7 @@
     <security:http auto-config="true" authentication-manager-ref="authenticationManager">
 
 
-        <security:intercept-url pattern="/static/**" access="permitAll"/>
+        <security:intercept-url pattern="/static/**" access="permitAll()"/>
 
         <security:intercept-url pattern="/app/**"/>
 
@@ -22,15 +22,12 @@
 
                              password-parameter="j_password"
                              username-parameter="j_username"/>
-
-
     </security:http>
 
 
     <security:authentication-manager id="authenticationManager">
         <security:authentication-provider>
             <security:jdbc-user-service data-source-ref="datasource"
-                                        role-prefix="none"
 
                                         users-by-username-query="SELECT username, password, enabled
                                         FROM users

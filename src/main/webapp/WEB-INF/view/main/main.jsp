@@ -5,14 +5,14 @@
   Time: 8:13 AM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
 
-<h1>Main Page</h1>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 
-</body>
-</html>
+
+<security:authorize access="hasAnyRole('ROLE_SUPER_ADMIN', 'ROLE_ADMIN')">
+
+    <div class="container">
+        Main Page
+    </div>
+
+</security:authorize>
