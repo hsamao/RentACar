@@ -1,5 +1,6 @@
 package com.samao.rentacar.service;
 
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -11,7 +12,9 @@ import org.aspectj.lang.annotation.Pointcut;
 @Aspect
 public class RentLoggerAspect {
 
-    @Pointcut ("within(com.samao.rentacab.service..*)")
+//    @Pointcut ("within(com.samao.rentacab.service..*)")
+
+    @Pointcut("@annotation(Log)")
     public void loggerPointCut(){
 
     }
@@ -20,4 +23,10 @@ public class RentLoggerAspect {
     public void log(){
         System.out.println("I was called before rent..... ");
     }
+
+    @After(value = "loggerPointCut()")
+    public void logAfter(){
+        System.out.println("I was called after rent.....");
+    }
+
 }
